@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.hero {
+    height: 450px;
+    padding: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero img {
+    width: 60%;
+    height: 350px;
+    border-radius: 20px;
+}
+
+.hero-text {
+    width: 80%;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+button {
+    padding: 1em 2.1em 1.1em;
+    border-radius: 4px;
+    margin: 8px;
+    border: none;
+    background-color: rgb(25, 152, 131);
+    color: rgb(243, 243, 243);
+    font-weight: 800;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0em -0.2rem 0em inset;
+}
+
+button:hover {
+    background-color: transparent;
+    color: rgb(25, 152, 131);
+    border: 3px solid #efeeee;
+}
+
+@media (max-width: 884px) {
+    .hero {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    .hero-text {
+        width: 100px;
+        text-align: center;
+    }
+    .hero-text h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 678px) {
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 428px) {
+    container {
+        display: none;
+    }
+}
+
+.laporan {
+    padding: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.tabel-laporan {
+    background-color: aqua;
+}
+
+.laporan-text h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin: 20px;
+}
+
+.footer {
+    padding: 20px;
+}
+
+.footer h3 {
+    text-align: center;
+    font-size: 1em;
+}
