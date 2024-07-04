@@ -49,57 +49,6 @@
               </div>
           </div>
       </div>
-
-      <!-- Tabel Dana Masuk dan Dana Keluar Bersebelahan -->
-      {{-- <div class="row">
-        <h4>Detail</h4>
-        <hr>
-       <!-- Tabel Dana Masuk -->
-      <div class="col-md-6">
-        <h5>Tabel Dana Masuk</h5>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Tanggal</th>
-                    <th>Nominal</th>
-                    <th>Ket.Masuk</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($dataDanaMasuk as $danaMasuk)
-                    <tr>
-                        <td>{{ $danaMasuk->tanggal }}</td>
-                        <td>{{ number_format($danaMasuk->nominal, 2) }}</td>
-                        <td>{{ $danaMasuk->ket_pemasukan }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-      </div>
-
-      <!-- Tabel Dana Keluar -->
-      <div class="col-md-6">
-        <h5>Tabel Dana Keluar</h5>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Tanggal</th>
-                    <th>Nominal</th>
-                    <th>Ket.Keluar</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($dataDanaKeluar as $danaKeluar)
-                    <tr>
-                        <td>{{ $danaKeluar->tanggal }}</td>
-                        <td>{{ number_format($danaKeluar->nominal, 2) }}</td>
-                        <td>{{ $danaKeluar->ket_pengeluaran }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-      </div>
-      </div> --}}
   </div>
 
   <div class="pt-3">
@@ -120,6 +69,7 @@
         <canvas id="grafikDanaKeluar"></canvas>
     </div>
   </div>
+
 
 <!-- Script untuk Grafik Dana Masuk -->
 <script>

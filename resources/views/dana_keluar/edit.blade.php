@@ -2,7 +2,7 @@
 
 @section('container')
   <div class="pt-3">
-    <h2>Tambah Laporan Dana Keluar</h2>
+    <h2>Edit Laporan Dana Keluar</h2>
   </div>
   @include('components.pesan')
   <!-- START FORM -->

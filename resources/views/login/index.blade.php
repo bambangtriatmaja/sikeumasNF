@@ -28,9 +28,10 @@
         }
     </style>
 </head>
-<body>
+<body> 
     <div class="login-container">
         <h2 class="text-center">Login</h2>
+        <h6 class="text-center">Sistem Informasi Laporan Keuangan Masjid Nurul Fikri Depok</h6>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-group">
