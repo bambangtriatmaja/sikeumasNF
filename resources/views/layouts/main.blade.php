@@ -15,8 +15,9 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <style>
         body,
@@ -29,6 +30,9 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            font-family: "Roboto", Arial, Helvetica, sans-serif;
         }
 
         @media (min-width: 768px) {
@@ -44,7 +48,8 @@
         }
 
         .nav-link:hover {
-            background-color: #469aee;
+            background-color: #c0d406;
+            color: #ffffff
         }
 
         #toggleSidebar {
@@ -82,6 +87,54 @@
 
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 2px 2px 2px #888888;
+        }
+
+        #grafik {
+            margin-top: 1em;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 1px 1px 1px #888888;
+        }
+
+        .sidebar {
+            background-color: #469aee;
+            color: #ffffff;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 1px 1px 1px #888888;
+        }
+
+        #dana-masuk:hover {
+            background-color: #198754;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        #dana-keluar:hover {
+            background-color: #dc3545;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        #dana-total:hover {
+            background-color: #0d6efd;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a {
+            font-weight: 500;
+        }
+
+        #header-judul {
+            font-weight: 600;
         }
     </style>
 
@@ -169,12 +222,11 @@
         <div class="d-flex">
             <!-- Sidebar-->
             <div class="sidebar">
-                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-                    style="min-width: 250px; min-height: 100vh;">
+                <div class="d-flex flex-column flex-shrink-0 p-3" style="min-width: 250px; min-height: 100vh;">
                     <a href="/"
                         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <img src="img/logo-masjidnf.png" width="50" height="50" alt="">
-                        <span class="px-2">SIKEUMAS</span>
+                        <img src="/img/logo-masjidnf.png" width="50" height="50" alt="">
+                        <span class="px-2" id="header-judul">SIKEUMAS NF</span>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
