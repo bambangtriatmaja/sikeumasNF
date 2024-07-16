@@ -43,16 +43,18 @@
                         <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->formatRupiah('nominal') }}</td>
                         <td>{{ $item->ket_pengeluaran }}</td>
-                        <td>
-                            <a href='{{ url('dana_keluar/' . $item->tanggal . '/edit') }}'
-                                class="btn btn-warning btn-sm">Edit</a>
-                            <form onsubmit="return confirm('Apakah yakin ingin menghapus data?')" class="d-inline"
-                                action="{{ url('dana_keluar/' . $item->tanggal) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
-                            </form>
-                            </form>
+                        <td class="col-md-2">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a href='{{ url('dana_keluar/' . $item->tanggal . '/edit') }}'
+                                    class="btn btn-warning btn-sm">Edit</a>
+                                <form onsubmit="return confirm('Apakah yakin ingin menghapus data?')" class="d-inline"
+                                    action="{{ url('dana_keluar/' . $item->tanggal) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
+                                </form>
+                            </div>
+
                         </td>
                     </tr>
                 @endforeach

@@ -103,14 +103,6 @@ h3.text-center {
     border: 1px solid #e0e0e0;
 }
 
-.card-header.bg-info {
-    background-color: #5ee2f1 !important;
-}
-
-.card-header.bg-danger {
-    background-color: #f9909b !important;
-}
-
 .table {
     margin-bottom: 0;
 }

@@ -12,12 +12,6 @@
     </div>
 
     <div>
-
-        {{-- <form action="/import-dana-masuk" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="file" required>
-            <button type="submit">Import Dana Masuk</button>
-        </form> --}}
     </div>
 
     <!-- START DATA -->
@@ -36,6 +30,21 @@
             <a href='{{ url('dana_masuk/create') }}' class="btn btn-primary">+ Tambah Data</a>
             <a href="/export-dana-masuk" class="btn btn-outline-primary">Export Dana Masuk</a>
         </div>
+
+        {{-- <div class="container mt-5">
+            <h2>Upload Dana Masuk</h2>
+
+            <form action="{{ route('import.dana_masuk') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="file">Pilih File:</label>
+                    <input type="file" name="file" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div> --}}
+
+
         @include('components.pesan')
         <table class="table table-striped">
             <thead>
@@ -52,15 +61,17 @@
                         <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->formatRupiah('nominal') }}</td>
                         <td>{{ $item->ket_pemasukan }}</td>
-                        <td>
-                            <a href='{{ url('dana_masuk/' . $item->tanggal . '/edit') }}'
-                                class="btn btn-warning btn-sm">Edit</a>
-                            <form onsubmit="return confirm('Apakah yakin ingin menghapus data?')" class="d-inline"
-                                action="{{ url('dana_masuk/' . $item->tanggal) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
-                            </form>
+                        <td class="col-md-2">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a href='{{ url('dana_masuk/' . $item->tanggal . '/edit') }}'
+                                    class="btn btn-warning btn-sm me-md-2 mb-2 mb-md-0">Edit</a>
+                                <form onsubmit="return confirm('Apakah yakin ingin menghapus data?')" class="d-inline"
+                                    action="{{ url('dana_masuk/' . $item->tanggal) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

@@ -146,7 +146,7 @@
         <!-- Total Dana Masuk dan Dana Keluar -->
         <h3>Total Dana Masuk: Rp. {{ number_format($totalDanaMasuk) }}</h3>
         <h3>Total Dana Keluar: Rp. {{ number_format($totalDanaKeluar) }}</h3>
-
+        <h3>Saldo Akhir: Rp{{ number_format($totalDanaMasuk - $totalDanaKeluar, 0, ',', '.') }}</h3>
         <button class="no-print" onclick="printReport()">Cetak Laporan</button>
     </div>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             align-items: center;
             height: 100vh;
         }
+
         .login-container {
             width: 100%;
             max-width: 400px;
@@ -23,20 +25,24 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .login-container h2 {
             margin-bottom: 20px;
         }
     </style>
 </head>
-<body> 
+
+<body>
     <div class="login-container">
+        <img src="/img/logo-masjidnf.png" class="mx-auto d-block" alt="Bootstrap" width="70" alt="logo-masjid-nf">
         <h2 class="text-center">Login</h2>
         <h6 class="text-center">Sistem Informasi Laporan Keuangan Masjid Nurul Fikri Depok</h6>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}"
+                    required autofocus>
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -61,4 +67,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

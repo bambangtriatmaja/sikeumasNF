@@ -13,8 +13,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DanaKeluarController;
 use App\Http\Controllers\CetakLaporanKeuanganController;
+use App\Http\Controllers\FilterLaporanController;
 
 Route::get('/', [LaporanController::class, 'index']);
+
+// Route::get('/filter-report', [FilterLaporanController::class, 'filter'])->name('filter-report');
 
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 
@@ -39,10 +42,14 @@ Route::get('/export-dana-masuk', function () {
 });
 
 Route::post('/import-dana-masuk', function (Request $request) {
+  $request->validate([
+      'file' => 'required|mimes:xlsx,xls,csv|max:2048', // Validasi file
+  ]);
+
   Excel::import(new DanaMasukImport, $request->file('file'));
 
-  return redirect('/')->with('success', 'Data dana masuk berhasil diimpor!');
-});
+  return redirect('/dana_masuk')->with('success', 'Data dana masuk berhasil diimpor!');
+})->name('import.dana_masuk');
 
 Route::get('/export-dana-keluar', function () {
   return Excel::download(new DanaKeluarExport, 'dana_keluar_' . now()->format('Y-m-d') . '.xlsx');
