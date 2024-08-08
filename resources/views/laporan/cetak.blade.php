@@ -81,9 +81,14 @@
             margin-right: auto;
         }
 
-        .content p {
+        #periode {
             text-align: center;
             color: #333;
+        }
+
+        .total p {
+            font-size: 1em;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -95,10 +100,20 @@
         <img src="/img/logo-masjidnf.png" alt="">
         <h2>Laporan Keuangan Pekanan</h2>
         <h3>Masjid Nurul Fikri, Depok</h3>
-        <p>Periode: {{ $tanggalMulai->format('d F Y') }} - {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+        <p id="periode">Periode: {{ $today->format('d F Y') }} - {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
         <hr>
+
+        <!-- Total Dana Masuk dan Dana Keluar -->
+        <div class="total">
+            <p>Total Dana Masuk Sepekan Kemarin: Rp. {{ number_format($totalLast7DaysMasuk) }}</p>
+            <p>Infaq Jum'at Kemarin: Rp. {{ number_format($totalDanaMasukLastFriday) }}</p>
+            <p>Total Dana Keluar: Rp. {{ number_format($totalLast7DaysKeluar) }}</p>
+            <p>Saldo Akhir: Rp. {{ number_format($totalSaldo, 0, ',', '.') }}</p>
+        </div>
+        <hr>
+
         <!-- Tabel data dana masuk -->
-        <h2>Data Dana Masuk</h2>
+        <h3>Data Dana Masuk</h3>
         <table border="1">
             <thead>
                 <tr>
@@ -121,7 +136,7 @@
         </table>
 
         <!-- Tabel data dana keluar -->
-        <h2>Data Dana Keluar</h2>
+        <h3>Data Dana Keluar</h3>
         <table border="1">
             <thead>
                 <tr>
@@ -143,11 +158,7 @@
             </tbody>
         </table>
         <hr>
-        <!-- Total Dana Masuk dan Dana Keluar -->
-        <h3>Total Dana Masuk: Rp. {{ number_format($totalDanaMasuk) }}</h3>
-        <h3>Total Dana Keluar: Rp. {{ number_format($totalDanaKeluar) }}</h3>
-        <h3>Saldo Akhir: Rp{{ number_format($totalDanaMasuk - $totalDanaKeluar, 0, ',', '.') }}</h3>
-        <button class="no-print" onclick="printReport()">Cetak Laporan</button>
+
     </div>
 
     <!-- Script JavaScript untuk fungsi cetak -->

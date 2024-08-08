@@ -68,9 +68,6 @@ class DanaKeluarController extends Controller
             'nominal'=>$request->nominal,
             'ket_pengeluaran'=>$request->ket_pengeluaran,
         ];
-        // $request->merge([
-        //     'nominal' => str_replace('.', '', $request->nominal),
-        // ]);
         DanaKeluar::create($data);
         return redirect()->to('dana_keluar')->with('success','Data berhasil ditambahkan');
     }

@@ -24,7 +24,12 @@ class LaporanController extends Controller
         $totalLast7DaysMasuk = DanaMasuk::where('tanggal', '>=', $date)->sum('nominal');
         $totalLast7DaysKeluar = DanaKeluar::where('tanggal', '>=', $date)->sum('nominal');
 
-        $totalSaldo = $totalLast7DaysMasuk - $totalLast7DaysKeluar;
+        // Menjumlahkan seluruh dana masuk dan keluar dari data yang sudah diinputkan ke database
+        $totalMasuk = DanaMasuk::sum('nominal');
+        $totalKeluar = DanaKeluar::sum('nominal');
+
+        // Menghitung total saldo bersih dari data yang sudah diinputkan ke database
+        $totalSaldo = $totalMasuk - $totalKeluar;
 
         return view('home')
         ->with('dataDanaMasuk', $dataDanaMasuk)

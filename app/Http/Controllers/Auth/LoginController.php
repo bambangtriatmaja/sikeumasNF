@@ -22,13 +22,13 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        if (Auth::attempt($credentials, $request->remember)) {
+        if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->withInput($request->only('email', 'remember'));
+            'email' => 'Email atau password yang anda masukkan salah',
+        ])->withInput($request->only('email'));
     }
 
     public function logout(Request $request)

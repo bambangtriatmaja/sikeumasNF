@@ -9,7 +9,7 @@
         <!-- Judul Laporan Keuangan dan Tanggal -->
         <div class="row mb-3">
             <div class="col-md-6">
-                <h4 class="float-md-start">Rekap Keuangan Selama Sepekan</h4>
+                <h4 class="float-md-start">Rekap Keuangan</h4>
             </div>
             <div class="col-md-6">
                 <h5 class="float-md-end">
@@ -19,12 +19,22 @@
         </div>
 
         <div class="row" id="card-dana">
-            <!-- Card Total Dana Masuk -->
+            <!-- Card saldo pekan kemarin -->
+            <div class="col-md-4">
+                <div class="card border-warning mb-4">
+                    <div class="card-body" id="dana-pekan-lalu">
+                        <h5 class="card-title">Saldo Pekan Kemarin</h5>
+                        <p class="card-text">Rp. {{ number_format($totallast14DaysKeluar) }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card total saldo jum'at pekan lalu -->
             <div class="col-md-4">
                 <div class="card border-success mb-4">
                     <div class="card-body" id="dana-masuk">
-                        <h5 class="card-title">Total Dana Masuk</h5>
-                        <p class="card-text">Rp. {{ number_format($totalLast7DaysMasuk) }}</p>
+                        <h5 class="card-title">Infaq Jum'at Pekan Lalu</h5>
+                        <p class="card-text">Rp. {{ number_format($totalDanaMasukLastFriday) }}</p>
                     </div>
                 </div>
             </div>
@@ -33,22 +43,45 @@
             <div class="col-md-4">
                 <div class="card border-danger mb-4">
                     <div class="card-body" id="dana-keluar">
-                        <h5 class="card-title">Total Dana Keluar</h5>
+                        <h5 class="card-title">Total Dana Keluar Sepekan</h5>
                         <p class="card-text">Rp. {{ number_format($totalLast7DaysKeluar) }}</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Card Total Saldo -->
+            <!-- Card total saldo keseluruhan -->
             <div class="col-md-4">
-                <div class="card card border-primary mb-4">
-                    <div class="card-body" id="dana-total">
-                        <h5 class="card-title">Total Saldo</h5>
+                <div class="card border-success mb-4">
+                    <div class="card-body" id="dana-masuk">
+                        <h5 class="card-title">Total Saldo Keseluruhan</h5>
                         <p class="card-text">Rp. {{ number_format($totalSaldo) }}</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Card Total Dana Masuk -->
+            <div class="col-md-4">
+                <div class="card border-success mb-4">
+                    <div class="card-body" id="dana-masuk">
+                        <h5 class="card-title">Total Dana Masuk Sepekan</h5>
+                        <p class="card-text">Rp. {{ number_format($totalLast7DaysMasuk) }}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Card Total Saldo Sepekan -->
+            <div class="col-md-4">
+                <div class="card card border-primary mb-4">
+                    <div class="card-body" id="dana-total">
+                        <h5 class="card-title">Saldo Bersih Sepekan</h5>
+                        <p class="card-text">Rp. {{ number_format($totalSaldoSepekan) }}</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     </div>
 
     <div class="pt-4" id="grafik">

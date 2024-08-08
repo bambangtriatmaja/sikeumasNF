@@ -7,53 +7,12 @@
     <title>SIKEUMAS-NF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/scss/_variables.scss">
-    <style>
-        * {
-            font-family: "Roboto", Helvetica, sans-serif;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-text {
-            margin-left: 10px;
-            color: #232020;
-        }
-
-        #hero {
-            background-color: #ffffff;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 992px) {
-            .navbar-brand {
-                display: none;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .navbar-brand {
-                display: none;
-            }
-        }
-
-        @media (max-width: 767px) {}
-    </style>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
@@ -119,8 +78,7 @@
                     <div class="card-header text-primary">Total Saldo</div>
                     <div class="card-body">
                         <h5 class="card-title text-primary">Rp
-                            {{ number_format($totalLast7DaysMasuk - $totalLast7DaysKeluar, 0, ',', '.') }}</h5>
-                        <p class="card-text text-muted">Saldo selama 7 hari terakhir.</p>
+                            {{ number_format($totalSaldo, 0, ',', '.') }}</h5>
                     </div>
                 </div>
             </div>
@@ -189,7 +147,7 @@
 
         {{-- Footer --}}
         <div class="footer">
-            <h3>SIKEUMAS 2024</h3>
+            <h6>SIKEUMAS 2024</h6>
         </div>
 
         {{-- end of footer --}}
@@ -198,5 +156,6 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
 </body>
+
 
 </html>

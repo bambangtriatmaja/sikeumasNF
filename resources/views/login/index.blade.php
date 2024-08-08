@@ -54,10 +54,6 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                <label class="form-check-label" for="remember">Remember me</label>
-            </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
     </div>

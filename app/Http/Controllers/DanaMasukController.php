@@ -35,17 +35,11 @@ class DanaMasukController extends Controller
         ->with('totalLast7Days', $totalLast7Days);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('dana_masuk.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         Session::flash('tanggal', $request->tanggal);
@@ -71,26 +65,17 @@ class DanaMasukController extends Controller
         return redirect()->to('dana_masuk')->with('success', 'Data berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data = DanaMasuk::where('tanggal', $id)->first();
         return view('dana_masuk.edit')->with('data', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -112,9 +97,6 @@ class DanaMasukController extends Controller
         return redirect()->to('dana_masuk')->with('success', 'Data berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         DanaMasuk::where('tanggal', $id)->delete();

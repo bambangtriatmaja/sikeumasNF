@@ -19,6 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
 
+    <!-- CSS Internal-->
     <style>
         body,
         html {
@@ -30,7 +31,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            font-family: 'Roboto', sans-serif;
+            font-family: "Roboto", sans-serif;
             background-color: #f7f7f7;
             font-family: "Roboto", Arial, Helvetica, sans-serif;
         }
@@ -69,7 +70,7 @@
 
         .nav-link:hover {
             background-color: #c0d406;
-            color: #ffffff
+            color: #ffffff;
         }
 
         .main-content {
@@ -124,6 +125,12 @@
             border-radius: 0 15px 15px 0;
             box-shadow: 1px 1px 1px #888888;
             transition: all 0.3s;
+        }
+
+        #dana-pekan-lalu:hover {
+            background-color: #f98619;
+            color: #ffffff;
+            border-radius: 5px;
         }
 
         #dana-masuk:hover {
@@ -185,12 +192,9 @@
         }
     </style>
 
-    <link href="/css/sidebars.css" rel="stylesheet">
-
 </head>
 
 <body>
-
 
     <!-- Tombol Toggle Sidebar -->
     <button class="btn btn-primary d-md-none" id="toggleSidebar" type="button" aria-expanded="false"

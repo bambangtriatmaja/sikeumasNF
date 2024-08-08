@@ -13,11 +13,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DanaKeluarController;
 use App\Http\Controllers\CetakLaporanKeuanganController;
-use App\Http\Controllers\FilterLaporanController;
 
 Route::get('/', [LaporanController::class, 'index']);
-
-// Route::get('/filter-report', [FilterLaporanController::class, 'filter'])->name('filter-report');
 
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 

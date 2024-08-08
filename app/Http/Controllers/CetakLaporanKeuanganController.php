@@ -11,16 +11,33 @@ class CetakLaporanKeuanganController extends Controller
 {
     public function cetakLaporan(){
 
-        // Menghitung tanggal seminggu yang lalu dari sekarang
-        $tanggalMulai = Carbon::now()->subDays(7);
+        // Mendapatkan tanggal hari ini
+        $today = Carbon::now();
 
-        $dataDanaMasuk = DanaMasuk::where('tanggal', '>=', $tanggalMulai)->get();
+        // Mengambil tanggal dan waktu 7 hari yang lalu
+        $date = Carbon::now()->subDays(7);
 
-        $dataDanaKeluar = DanaKeluar::where('tanggal', '>=', $tanggalMulai)->get();
+        // Mendapatkan tanggal Jumat pekan lalu
+        $lastFriday = $today->subWeek()->previous(Carbon::FRIDAY);
 
-        $totalDanaMasuk = $dataDanaMasuk->sum('nominal');
-        $totalDanaKeluar = $dataDanaKeluar->sum('nominal');
+        // Menghitung total dana masuk pada hari Jumat pekan lalu
+        $totalDanaMasukLastFriday = DanaMasuk::whereDate('tanggal', $lastFriday->toDateString())->sum('nominal');
 
-        return view('laporan.cetak', compact('tanggalMulai', 'dataDanaMasuk', 'dataDanaKeluar', 'totalDanaMasuk', 'totalDanaKeluar'));
+        // Menjumlahkan nominal dari dana masuk dan dana keluar dalam 7 hari terakhir
+        $totalLast7DaysMasuk = DanaMasuk::where('tanggal', '>=', $date)->sum('nominal');
+        $totalLast7DaysKeluar = DanaKeluar::where('tanggal', '>=', $date)->sum('nominal');
+
+        // Menjumlahkan seluruh dana masuk dan keluar dari data yang sudah diinputkan ke database
+        $totalMasuk = DanaMasuk::sum('nominal');
+        $totalKeluar = DanaKeluar::sum('nominal');
+
+        // Menghitung total saldo bersih dari data yang sudah diinputkan ke database
+        $totalSaldo = $totalMasuk - $totalKeluar;
+
+        $dataDanaMasuk = DanaMasuk::where('tanggal', '>=', $date)->get();
+
+        $dataDanaKeluar = DanaKeluar::where('tanggal', '>=', $date)->get();
+
+        return view('laporan.cetak', compact('today', 'totalDanaMasukLastFriday', 'totalLast7DaysMasuk', 'totalLast7DaysKeluar', 'totalSaldo', 'dataDanaMasuk', 'dataDanaKeluar'));
     }
 }

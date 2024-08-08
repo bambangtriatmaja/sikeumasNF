@@ -62,14 +62,14 @@
                         <td>{{ $item->formatRupiah('nominal') }}</td>
                         <td>{{ $item->ket_pemasukan }}</td>
                         <td class="col-md-2">
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="d-grid gap-2 d-md-flex justify-content">
                                 <a href='{{ url('dana_masuk/' . $item->tanggal . '/edit') }}'
                                     class="btn btn-warning btn-sm me-md-2 mb-2 mb-md-0">Edit</a>
                                 <form onsubmit="return confirm('Apakah yakin ingin menghapus data?')" class="d-inline"
                                     action="{{ url('dana_masuk/' . $item->tanggal) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
                             </div>
                         </td>
